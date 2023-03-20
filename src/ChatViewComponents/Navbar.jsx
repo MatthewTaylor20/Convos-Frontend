@@ -1,4 +1,12 @@
+import axios from "axios";
 import Logo from "../assets/images/convos-logo-words.png";
+
+const handleLogout = (event) => {
+  event.preventDefault();
+  delete axios.defaults.headers.common["Authorization"];
+  localStorage.removeItem("jwt");
+  window.location.href = "/login";
+};
 
 export function Navbar() {
   return (
@@ -11,7 +19,7 @@ export function Navbar() {
           className="profile-pic"
         />
         <span>John</span>
-        <button>logout</button>
+        <button onClick={handleLogout}>logout</button>
       </div>
     </div>
   );
