@@ -4,7 +4,7 @@ export function Chats(props) {
     <div className="chats">
       {props.groups.map((group) => {
         return (
-          <div className="userChat" key={group.id}>
+          <div className="userChat" key={group.id} onClick={() => props.onSelectGroup(group)}>
             <img src={group.image_url} />
             <div className="userChatInfo">
               <span>{group.title}</span>

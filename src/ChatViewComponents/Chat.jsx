@@ -8,26 +8,27 @@ import axios from "axios";
 export function Chat(props) {
   const [messages, setMessages] = useState([]);
   const handleIndexMessages = () => {
-    console.log(`handleIndexMessages: ${props.groupID}`);
-    if (props.groupID) {
-      axios.get(`http://localhost:3000/messages.json?group_id=${props.groupID}`).then((response) => {
-        console.log(response.data);
+    // console.log(`handleIndexMessages: ${props.group.id}`);
+    if (props.group.id) {
+      axios.get(`http://localhost:3000/messages.json?group_id=${props.group.id}`).then((response) => {
+        // console.log(response.data);
         setMessages(response.data);
       });
     }
   };
 
-  useEffect(handleIndexMessages, [props.groupID]);
+  useEffect(handleIndexMessages, [props.group]);
+
   return (
     <div className="chat">
       <div className="chatInfo">
-        <span>Jane</span>
+        <span>{props.group.title}</span>
         <div className="chatIcons">
           <img src={Plus} alt="" />
           <img src={More} alt="" className="ellipsis" />
         </div>
       </div>
-      <Messages messages={messages} />
+      <Messages messages={messages} currentUser={props.currentUser} />
       <Input />
     </div>
   );

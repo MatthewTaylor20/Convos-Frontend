@@ -6,10 +6,10 @@ export function Sidebar(props) {
   // console.log(props.groups);
   return (
     <div className="sidebar">
-      <Navbar />
+      <Navbar currentUser={props.currentUser}/>
       <Search />
       <div className="chatList">
-        <Chats groups={props.groups} />
+        <Chats groups={props.groups} onSelectGroup={props.onSelectGroup}/>
       </div>
     </div>
   );
