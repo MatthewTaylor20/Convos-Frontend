@@ -3,7 +3,7 @@ export function Message(props) {
   // console.log(timestamp);
   let formatedTimestamp = formatDate(timestamp);
   if (formatedTimestamp === "Today") {
-    formatedTimestamp = `Today at ${formatAMPM(timestamp)}`;
+    formatedTimestamp = `${formatAMPM(timestamp)}`;
   }
 
   if (props.user === "owner") {
@@ -11,7 +11,7 @@ export function Message(props) {
       <div className="message owner">
         <div className="messageInfo">
           <img src={props.userImage} alt="" />
-          <span>{formatedTimestamp}</span>
+          <span>{props.name}</span>
         </div>
         <div className="messageContent">
           <p>{props.body}</p>
@@ -20,6 +20,7 @@ export function Message(props) {
             alt=""
           /> */}
         </div>
+        <span>{formatedTimestamp}</span>
       </div>
     );
   } else {
@@ -27,7 +28,7 @@ export function Message(props) {
       <div className="message">
         <div className="messageInfo">
           <img src={props.userImage} alt="" />
-          <span>{formatedTimestamp}</span>
+          <span>{props.name}</span>
         </div>
         <div className="messageContent">
           <p>{props.body}</p>
@@ -36,6 +37,7 @@ export function Message(props) {
             alt=""
           /> */}
         </div>
+        <span>{formatedTimestamp}</span>
       </div>
     );
   }

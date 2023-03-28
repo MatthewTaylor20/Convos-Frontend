@@ -20,6 +20,13 @@ export function Login() {
         console.log(response.data);
         axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
         localStorage.setItem("jwt", response.data.jwt);
+        localStorage.setItem("user_id", response.data.user_id);
+        localStorage.setItem("user_image", response.data.user_image_url);
+        localStorage.setItem("first_name", response.data.first_name);
+        localStorage.setItem("last_name", response.data.last_name);
+        localStorage.setItem("email", response.data.email);
+        localStorage.setItem("phone_number", response.data.phone_number);
+
         event.target.reset();
         window.location.href = "/"; // Change this to hide a modal, redirect to a specific page, etc.
       })
