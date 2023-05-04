@@ -18,6 +18,7 @@ export function Chat(props) {
     newMessage.user_id = data.user_id;
     newMessage.user_image = data.sender_image;
     newMessage.group_id = data.group_id;
+    newMessage.notification = data.notification;
     newMessage.created_at = data.created_at;
 
     const newMessages = [...messages, newMessage];

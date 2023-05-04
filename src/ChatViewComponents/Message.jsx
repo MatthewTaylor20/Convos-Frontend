@@ -5,8 +5,9 @@ export function Message(props) {
   if (formatedTimestamp === "Today") {
     formatedTimestamp = `${formatAMPM(timestamp)}`;
   }
-
-  if (props.user === "owner") {
+  if (props.user === "notification") {
+    return <p>{props.body}</p>;
+  } else if (props.user === "owner") {
     return (
       <div className="message owner">
         <div className="messageInfo">

@@ -440,6 +440,14 @@
         height: calc(100% - 100px);
         overflow: scroll;
 
+        p{
+          color: rgb(233, 233, 233);
+          font-weight: 300;
+          font-size: 14px;
+          display: inline-block;
+          vertical-align: middle;
+          line-height: normal;
+        }
         .message{
           display: flex;
           gap: 20px;

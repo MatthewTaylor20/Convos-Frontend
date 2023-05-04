@@ -79,6 +79,7 @@ export function ChatView() {
             group.message.user_id = data.user_id;
             group.message.group_id = data.group_id;
             group.message.body = data.body;
+            group.message.notification = data.notification;
             group.message.created_at = data.created_at;
           }
           return group;

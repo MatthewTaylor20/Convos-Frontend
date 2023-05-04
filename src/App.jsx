@@ -6,10 +6,6 @@ import { PusherProvider } from "./PusherContext.jsx";
 
 Pusher.logToConsole = true;
 
-const pusher = new Pusher("43491bb7323d0c9bbcbf", {
-  cluster: "us3",
-});
-
 function App() {
   return (
     <PusherProvider pusher={pusher}>
@@ -17,9 +13,6 @@ function App() {
         <BrowserRouter>
           <Content />
         </BrowserRouter>
-        {/* <Header /> */}
-
-        {/* <Footer /> */}
       </div>
     </PusherProvider>
   );

@@ -13,16 +13,34 @@ export function Messages(props) {
   return (
     <div className="messages">
       {props.messages.map((message) => {
-        if (parseInt(props.currentUserID) === message.user_id) {
+        if (message.notification) {
           return (
             <div key={message.id}>
-              <Message user="owner" userImage={message.user_image} timestamp={message.created_at} body={message.body} name={message.first_name}/>
+              <Message user="notification" body={message.body} />
+            </div>
+          );
+        } else if (parseInt(props.currentUserID) === message.user_id) {
+          return (
+            <div key={message.id}>
+              <Message
+                user="owner"
+                userImage={message.user_image}
+                timestamp={message.created_at}
+                body={message.body}
+                name={message.first_name}
+              />
             </div>
           );
         } else {
           return (
             <div key={message.id}>
-              <Message user="" userImage={message.user_image} timestamp={message.created_at} body={message.body} name={message.first_name}/>
+              <Message
+                user=""
+                userImage={message.user_image}
+                timestamp={message.created_at}
+                body={message.body}
+                name={message.first_name}
+              />
             </div>
           );
         }
